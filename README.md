@@ -59,8 +59,9 @@ then in terminal type:
 then you will see something like this:
 Serving Flask app 'app'
  * Debug mode: on
-   After this go to chrome and paste:
-   (http://127.0.0.1:5000/)
+   
+After this go to chrome and paste:
+(http://127.0.0.1:5000/)
 This will open the Face Attendance website.
 and then proceed to explore the website and it's functionalities.
 
