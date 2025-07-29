@@ -57,8 +57,9 @@ in that go to open new folder,Navigate to your face_recognition_attendance folde
 then in terminal type:
 "python app.py"
 then you will see something like this:
+
 Serving Flask app 'app'
- * Debug mode: on
+Debug mode: on
    
 After this go to chrome and paste:
 (http://127.0.0.1:5000/)
