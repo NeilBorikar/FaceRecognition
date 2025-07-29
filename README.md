@@ -1,5 +1,5 @@
 # FaceRecognition
-This is an facerecognition attendance system where the complete backend is written in python and for front end HTML,JS,svg and CSS is used.
+This is an facerecognition attendance system where the complete backend is written in python and for front end HTML,JS,SVG and CSS is used.
 
 THE SETUP IS AS FOLLOWS:
 in order to Make this project run.It's recommended to use python interpreter 3.11.8 which you can install from the link
