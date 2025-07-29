@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Face Attendance{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Live Camera Feed -->
+    <div class="video-box">
+        <img src="{{ url_for('video_feed') }}" id="camera-feed">
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <a href="{{ url_for('register') }}" class="btn">Register New User</a>
+        <button id="mark-btn" class="btn">Mark Attendance</button>
+    </div>
+
+    <!-- Attendance Log -->
+    <div id="attendance-log" class="log-box"></div>
+</div>
+
+<script>
+    const markBtn = document.getElementById('mark-btn');
+    const log = document.getElementById('attendance-log');
+
+    markBtn.addEventListener('click', async () => {
+        markBtn.disabled = true;
+        markBtn.innerText = 'Marking...';
+
+        try {
+            const response = await fetch('/mark_attendance');
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                log.innerHTML += `<p>✅ ${result.name} - ${result.time}</p>`;
+            } else {
+                log.innerHTML += `<p>❌ ${result.message}</p>`;
+            }
+        } catch (err) {
+            log.innerHTML += `<p>⚠️ Error occurred while marking attendance</p>`;
+        }
+
+        markBtn.disabled = false;
+        markBtn.innerText = 'Mark Attendance';
+    });
+</script>
+
+{% endblock %}

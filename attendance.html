@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="attendance-container">
+    <h2>Attendance Records</h2>
+    
+    <!-- Filter Form -->
+    <form method="get" class="filter-form">
+        <fieldset>
+            <legend>Filter Options</legend>
+            
+            <div class="filter-option">
+                <input type="radio" id="single_date" name="filter_type" value="single"
+                       {% if filter_type == 'single' %}checked{% endif %}>
+                <label for="single_date">Single Date</label>
+                <input type="date" name="date" value="{{ date }}"
+                       {% if filter_type != 'single' %}disabled{% endif %}>
+            </div>
+
+            <div class="filter-option">
+                <input type="radio" id="date_range" name="filter_type" value="range"
+                       {% if filter_type == 'range' %}checked{% endif %}>
+                <label for="date_range">Date Range</label>
+                <div class="date-range">
+                    <input type="date" name="start_date" value="{{ start_date }}"
+                           {% if filter_type != 'range' %}disabled{% endif %}>
+                    <span>to</span>
+                    <input type="date" name="end_date" value="{{ end_date }}"
+                           {% if filter_type != 'range' %}disabled{% endif %}>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+            <a href="{{ url_for('view_attendance') }}" class="btn btn-secondary">Reset</a>
+        </div>
+    </form>
+
+    <!-- Results Table -->
+    <table class="attendance-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date/Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.name }}</td>
+                <td>{{ record.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2">No records found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- JavaScript for dynamic form behavior -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterTypeRadios = document.querySelectorAll('input[name="filter_type"]');
+    
+    function updateInputs() {
+        const isSingle = document.querySelector('#single_date').checked;
+        document.querySelector('[name="date"]').disabled = !isSingle;
+        document.querySelector('[name="start_date"]').disabled = isSingle;
+        document.querySelector('[name="end_date"]').disabled = isSingle;
+    }
+    
+    filterTypeRadios.forEach(radio => {
+        radio.addEventListener('change', updateInputs);
+    });
+    
+    // Initialize on page load
+    updateInputs();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,227 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Layout */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.video-box {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.video-box video {
+    width: 100%;
+    display: block;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.log-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    min-height: 100px;
+    border-radius: 4px;
+}
+
+/* Registration Form */
+.registration-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px !important;
+}
+
+.empty-state img {
+    opacity: 0.6;
+    margin-bottom: 15px;
+}
+
+.btn-period {
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+    background: #f1f1f1;
+}
+
+.btn-period.active {
+    background: #4285f4;
+    color: white;
+    border-color: #4285f4;
+}
+
+/* Sortable Table Headers */
+th {
+    cursor: pointer;
+    position: relative;
+}
+
+th:hover {
+    background-color: #f5f5f5;
+}
+
+/* Log Entries */
+.log-entry {
+    padding: 8px 12px;
+    margin: 5px 0;
+    background: #f9f9f9;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.log-entry .name {
+    font-weight: bold;
+}
+
+.log-entry .time {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.log-entry .status {
+    color: green;
+}
+
+.log-entry .error {
+    color: red;
+}
+
+/* Camera feed */
+#camera-feed {
+    width: 400px; 
+    height: auto;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+}
+
+.video-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Mark button disabled state */
+#mark-btn:disabled {
+    background: #ccc !important;
+    cursor: not-allowed;
+}
+
+/* Attendance Page Styles */
+.attendance-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.filter-form {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.filter-form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.filter-form legend {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.filter-option {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-option label {
+    margin-right: 15px;
+    min-width: 100px;
+}
+
+.date-range {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 115px; /* Align with other inputs */
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.attendance-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
